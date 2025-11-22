@@ -189,7 +189,7 @@ This dashboard is designed to work seamlessly with the BESS Analytics Platform b
 ## 👤 Author
 
 **Hammad Imran**
-- GitHub: [@hammadimran](https://github.com/hammadimran)
+- GitHub: [@maddy-9991](https://github.com/maddy-9991)
 - Email: hammadimran100@gmail.com
 
 ## 📄 License
