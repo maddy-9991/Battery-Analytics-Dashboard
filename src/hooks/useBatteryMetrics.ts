@@ -19,6 +19,7 @@ export const useBatteryMetrics = (batteryId: string) => {
         setError(err instanceof Error ? err.message : 'Failed to fetch metrics');
       } finally {
         setLoading(false);
+        console.log(1)
       }
     };
 
