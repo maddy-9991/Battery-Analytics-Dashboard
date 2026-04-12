@@ -25,7 +25,7 @@ export const useBatteryMetrics = (batteryId: string) => {
 
     if (batteryId) {
       fetchMetrics();
-      console.log(2);
+      console.log(3);
     }
   }, [batteryId]);
 
