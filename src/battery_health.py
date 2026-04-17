@@ -14,3 +14,20 @@ class HealthScore(BaseModel):
     score: float = Field(..., ge=0.0, le=1.0)
     grade: str
     message: Optional[str] = None
+
+def calculate_health_score(reading: BatteryReading) -> HealthScore:
+    voltage_score = (reading.voltage - 40.0) / 15.0
+    temp_score = 1.0 - (abs(reading.temperature - 25.0) / 35.0)
+    score = round((voltage_score * 0.7) + (temp_score * 0.3), 2)
+
+    if score >= 0.8:
+        grade, message = "A", "Battery operating optimally"
+    elif score >= 0.6:
+        grade, message = "B", "Battery operating normally"
+    elif score >= 0.4:
+        grade, message = "C", "Battery performance degraded"
+    else:
+        grade, message = "D", "Battery requires immediate attention"
+
+    logger.info(f"Health score for {reading.device_id}: {score} ({grade})")
+    return HealthScore(device_id=reading.device_id, score=score, grade=grade, message=message)
