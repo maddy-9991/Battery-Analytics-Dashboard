@@ -29,5 +29,5 @@ def calculate_health_score(reading: BatteryReading) -> HealthScore:
     else:
         grade, message = "D", "Battery requires immediate attention"
 
-    logger.info(f"Health score for {reading.device_id}: {score} ({grade})")
+    logger.info(f"Health score for the {reading.device_id}: {score} ({grade})")
     return HealthScore(device_id=reading.device_id, score=score, grade=grade, message=message)
